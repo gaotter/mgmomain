@@ -1,0 +1,27 @@
+﻿@page "/"
+
+@using mgmomain.Data
+@using mgmoconnector.ViewModels
+@inject ArticleService ArticleService
+
+    <header>
+        <h3>Hi welcome to my site</h3>
+    </header>
+
+
+<div class="content-main">
+    @foreach(var a in articles)
+    {
+        <div class="article-owerview">@a.Title</div>
+    }
+</div>
+
+
+@code {
+    private IEnumerable<ArticleViewModel> articles = null;
+
+    protected override void OnInitialized()
+    {
+        articles = ArticleService.GetAllAzureArticles("gameing");
+    }
+}
