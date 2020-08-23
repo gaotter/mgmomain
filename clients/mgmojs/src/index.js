@@ -1,28 +1,16 @@
 import _ from "lodash";
 import Articles from './services/articles';
+import artilceList from './parts/article-list/articles-list';
 // styles
 import "./style.css";
 
 function component() {
   const articles = new Articles();
 
-  const element = document.createElement("div");
-  const btn = document.createElement('button');
+  const element = document.createElement("div"); 
+  element.classList.add("main");
 
-  element.innerHTML = _.join(["Hello", "webpack served"], " ");
-  element.classList.add("hello");
-
-  btn.innerHTML = 'Click me';
-  btn.onclick = () => {
-      articles.fetchArticlesOldStyle().then(response => {
-        response.json().then(data => {
-            console.log("response data is ", data);
-        });
-      })
-  };
-
-  element.appendChild(btn);
-
+  element.appendChild(artilceList());
   return element;
 }
 
