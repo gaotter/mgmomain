@@ -1,9 +1,11 @@
 import _ from "lodash";
-import printMe from './print.js';
+import Articles from './services/articles';
 // styles
 import "./style.css";
 
 function component() {
+  const articles = new Articles();
+
   const element = document.createElement("div");
   const btn = document.createElement('button');
 
@@ -11,7 +13,13 @@ function component() {
   element.classList.add("hello");
 
   btn.innerHTML = 'Click me';
-  btn.onclick = printMe;
+  btn.onclick = () => {
+      articles.fetchArticlesOldStyle().then(response => {
+        response.json().then(data => {
+            console.log("response data is ", data);
+        });
+      })
+  };
 
   element.appendChild(btn);
 
