@@ -2,6 +2,7 @@
 using mgmoarticleint.Articles;
 using mgmoarticleint.Models;
 using Microsoft.Azure.Cosmos.Table;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,6 +13,7 @@ namespace mgmoarticledata.Articles
         ConnectionInfo _connectionInfo;
         CloudStorageAccount storageAccount;
         CloudTableClient tableClinet;
+        string categoryesKey = "AllCategories234";
 
         public ArticleDataHandlers(ConnectionInfo connectionInfo)
         {
@@ -66,6 +68,18 @@ namespace mgmoarticledata.Articles
             var articlesModel = articles.Select(art => Map(art));
 
             return articlesModel;
+        }
+
+        public IEnumerable<string> GetArticleCategories()
+        {
+            var articleTable = GetArticleTable();
+
+            var query = new TableQuery<TableEntity>()
+                .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, categoryesKey));
+
+            var articles = articleTable.ExecuteQuery(query);
+
+            return articles.Select(a => a.PartitionKey);
         }
 
         private static ArticleModel Map(ArticleData a)
