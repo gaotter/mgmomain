@@ -2,7 +2,7 @@ import "./articles-list.css";
 
 export default function articleList() {
   const articleListMain = document.createElement("div");
-  articleListMain.classList = "article-lists";
+  articleListMain.classList.add("article-lists");
 
   const articleListHeader = document.createElement("h1");
   articleListHeader.innerHTML = "Article lists";
