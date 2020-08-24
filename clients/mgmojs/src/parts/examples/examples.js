@@ -8,18 +8,9 @@ export default function examplesList() {
   const articleListHeader = document.createElement("h1");
   articleListHeader.innerHTML = "Examples";
 
-  const list = document.createElement("ul");
-
   const examplePanel = document.createElement("div");
 
-  const observableSelection = document.createElement("li");
-  observableSelection.innerHTML = "observables example";
-  observableSelection.onclick = () => {
-    examplePanel.innerHTML = "";
-    examplePanel.appendChild(observableExample());
-  };
-
-  list.appendChild(observableSelection);
+  const list = setUpExampleList();
 
   const listWrapper = document.createElement("div");
   listWrapper.appendChild(list);
@@ -29,4 +20,23 @@ export default function examplesList() {
   examplesList.appendChild(examplePanel);
 
   return examplesList;
+
+  function setUpExampleList() {
+    const list = document.createElement("ul");
+
+    const observableSelection = setUpObservableExambleItem();
+
+    list.appendChild(observableSelection);
+    return list;
+  }
+
+  function setUpObservableExambleItem() {
+    const observableSelection = document.createElement("li");
+    observableSelection.innerHTML = "observables example";
+    observableSelection.onclick = () => {
+      examplePanel.innerHTML = "";
+      examplePanel.appendChild(observableExample());
+    };
+    return observableSelection;
+  }
 }
