@@ -7,7 +7,9 @@ export const routes =  {
     examples:'examples'
 }
 
-const _routes = [{routeKey:routes.examples, routeUrl:'examples'},{routeKey:routes.aricles, routeUrl:'articles'}];
+const _routes = [{routeKey:routes.examples, routeUrl:'examples'},
+{routeKey:routes.aricles, routeUrl:'articles'}
+];
 
 export function getCurrentRoute() {
     const obs = new Observable(sub => {
