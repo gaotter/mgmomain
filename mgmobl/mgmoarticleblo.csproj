@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mgmoarticleint\mgmoarticleint.csproj" />
+    <ProjectReference Include="..\mgmoarticleint\mgmoarticlient.csproj" />
   </ItemGroup>
 
 </Project>

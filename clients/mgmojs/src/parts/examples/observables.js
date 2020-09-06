@@ -1,5 +1,6 @@
-import { Observable } from "rxjs";
-import { get } from "lodash";
+import { Observable, fromEvent, from, of } from "rxjs";
+import { ajax } from "rxjs/ajax";
+import { map } from "rxjs/operators";
 
 export default function observableExample() {
   const observableExample = document.createElement("div");
@@ -11,18 +12,57 @@ export default function observableExample() {
     parrent.appendChild(paragraphsElement);
   }
 
-  appendParagrapth(
-    observableExample,
-    `En observable kan gi eller pushe verdier til flere observsers. 
-    Når man kjører en next i en observable kjører kaller den en en av tre verdier i en observers om subscriber på en obsevable`
-  );
+  function setUpNextLogic() {
+    let currentIndex = 0;
+    const examplesList = [() => fromObservableExample()];
+
+    const nextButton = document.createElement("button");
+    nextButton.innerHTML = "Next example";
+    nextButton.onclick = () => {
+      const exampleToShow = examplesList[currentIndex];
+      if (currentIndex < examplesList.length) {
+        exampleToShow();
+        currentIndex = currentIndex + 1;
+      }
+    };
+
+    observableExample.appendChild(nextButton);
+  }
+
+  setUpNextLogic();
+
+  basicObservableExample();
+
   const getDataButton = document.createElement("button");
   getDataButton.innerHTML = "Get som data";
 
-  observableAsClassExample();
-  observableExample.appendChild(getDataButton);
-
   return observableExample;
+
+  function basicObservableExample() {
+    appendParagrapth(
+      observableExample,
+      `Eksempel en viser hvordan man lager en observable i sin enkleste form. 
+      Ved å implementer en observer som har tre funksjoner: next() som blir kalt hver gang next blir kalt i observable, 
+      error() som blir kalt en gang i alle som observer, men som stopper observable, og complete() som kaller observer completet og ferdigstile/stopper observables. `
+    );
+
+    appendParagrapth(
+      observableExample,
+      `Det som er viktig å kunne er at etter error eller complete er observable kansellert og ferdig. 
+      Da må man sette opp en ny observble og observere må subscripe på den nye obsevable. Observable som implement complete rydder opp seg selv på en måte. 
+      Grunnen er at en observable older på referanser til alle observers, noe som kan gi minne lekaskje om den ikke gjør seg ferdig og rydder opp.  `
+    );
+
+    observableAsClassExample();
+  }
+
+  function fromObservableExample() {
+    appendParagrapth(
+      observableExample,
+      `For å gjøre det enklere å bruke obsevables mot vanlige javascript hendelser eller typer er det laget en del hjelpe funksjoner`
+    );
+    obsevableFormAnEvent();
+  }
 
   // Basic observable class and direct
   function observableAsClassExample() {
@@ -53,7 +93,7 @@ export default function observableExample() {
       }, 4000);
     });
 
-    observableExample.appendChild(getDataButton);
+    //observableExample.appendChild(getDataButton);
 
     const observer1 = new ObserverAsAClass(observableExample);
     const observer2 = new ObserverAsAClass(observableExample);
@@ -69,7 +109,67 @@ export default function observableExample() {
     );
   }
 
-  function obsevableFormAnEvent() {}
+  function obsevableFormAnEvent() {
+    const observableButton = document.createElement("button");
+    observableButton.innerHTML = "Observable from  button";
+
+    const showArrayExample = document.createElement("button");
+    showArrayExample.innerHTML = "show observables from array";
+
+    const fromAjaxExampleButton = document.createElement("button");
+    fromAjaxExampleButton.innerHTML = "fetch some data from the server";
+
+    observableExample.appendChild(observableButton);
+    observableExample.appendChild(showArrayExample);
+    observableExample.appendChild(fromAjaxExampleButton);
+    // her brukes en hjelpemetode som gjør det veldig enkelt å gjøre om et dom event til
+    // en obsevable.
+    const observableFromButtonEvent = fromEvent(observableButton, "click");
+
+    const observer1 = new ObserverAsAClass(observableExample);
+    const observer2 = new ObserverAsAClass(observableExample);
+
+    // setter opp to observable som lytter på click eventet
+    observableFromButtonEvent
+      .pipe(map(() => ({ message: "Mapped to me!!" })))
+      .subscribe(observer1);
+    observableFromButtonEvent.subscribe(observer2);
+
+    showArrayExample.onclick = () => {
+      const observer1 = new ObserverAsAClass(observableExample);
+      const observer2 = new ObserverAsAClass(observableExample);
+      const observer3 = new ObserverAsAClass(observableExample);
+
+      const testArray = ["Hei", "på", "deg"];
+      // her gjøres en array om til en observable, der hver element blir trigget en etter en.
+      const observableFromArray = from(testArray);
+      observableFromArray.subscribe(observer1);
+      observableFromArray.subscribe(observer2);
+
+      // her generes en observable som vil sende med objektet til all som subscriber, så complete.
+      const observableFromObj = of({ message: "jeg er bare et enkelt object" });
+
+      observableFromObj.subscribe(observer3);
+    };
+
+    fromAjaxExampleButton.onclick = () => {
+      const observer1 = new ObserverAsAClass(observableExample);
+      const observer2 = new ObserverAsAClass(observableExample);
+
+      const formAjax = ajax({
+        url: "/api/ping?data=test",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/text"
+        },
+      });
+
+      formAjax.pipe(map((d) => d.response)).subscribe(observer1);
+      formAjax.subscribe(observer2);
+    };
+
+    //observableFromButtonEvent.subscribe(observer2);
+  }
 }
 
 class ObserverAsAClass {

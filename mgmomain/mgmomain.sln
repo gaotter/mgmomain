@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoarticledata", "..\mgmod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoarticleblo", "..\mgmobl\mgmoarticleblo.csproj", "{A9948DAE-8698-4DDB-8ABE-932C310DD5DF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoarticleint", "..\mgmoarticleint\mgmoarticleint.csproj", "{5029F972-D941-40EB-A670-E835EF46374A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoarticlient", "..\mgmoarticleint\mgmoarticlient.csproj", "{5029F972-D941-40EB-A670-E835EF46374A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoconnector", "..\mgmoconnector\mgmoconnector.csproj", "{73F5951A-E14C-451F-8F1F-810F2ABDA4FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgmoapi", "..\mgmoapi\mgmoapi.csproj", "{9C7971FF-2745-4797-A3E3-777CD21D7904}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoapi", "..\mgmoapi\mgmoapi.csproj", "{9C7971FF-2745-4797-A3E3-777CD21D7904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

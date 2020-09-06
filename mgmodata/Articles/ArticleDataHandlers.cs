@@ -20,10 +20,7 @@ namespace mgmoarticledata.Articles
             _connectionInfo = connectionInfo;
 
             storageAccount = CloudStorageAccount.Parse(connectionInfo.ConnectionString);
-            tableClinet = storageAccount.CreateCloudTableClient();
-
-
-        }
+            tableClinet = storageAccount.CreateCloudTableClient();        }
         public ArticleModel GetArticle(string articleArea, string articleId)
         {
             var articlesTable = GetArticleTable();

@@ -4,10 +4,13 @@ import { filter } from 'rxjs/operators';
 
 export const routes =  {
     aricles:'articles',
-    examples:'examples'
+    examples:'examples',
+    root:'home'
 }
 
-const _routes = [{routeKey:routes.examples, routeUrl:'examples'},
+const _routes = [
+    {routeKey:routes.root, routeUrl:''},
+    {routeKey:routes.examples, routeUrl:'examples'},
 {routeKey:routes.aricles, routeUrl:'articles'}
 ];
 
@@ -31,6 +34,7 @@ export function getCurrentRoute() {
 }
 
 function _getCurrentRoute() {
-return  _routes.find(r => location.hash === `#${r.routeUrl}`);
+const foundRoute =  _routes.find(r => location.hash === `#${r.routeUrl}`);
+return foundRoute || _routes[0];
 }
 

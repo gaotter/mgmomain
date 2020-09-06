@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mgmoarticleint\mgmoarticleint.csproj" />
+    <ProjectReference Include="..\mgmoarticleint\mgmoarticlient.csproj" />
     <ProjectReference Include="..\mgmobl\mgmoarticleblo.csproj" />
     <ProjectReference Include="..\mgmodata\mgmoarticledata.csproj" />
   </ItemGroup>

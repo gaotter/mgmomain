@@ -12,6 +12,29 @@ function component() {
   const element = document.createElement("div");
   element.classList.add("main");
 
+  const elementMainPage = document.createElement("div");
+
+  const titleElement = document.createElement("h1");
+  titleElement.innerHTML = "Welcome to my vanilla js example page";
+  elementMainPage.appendChild(titleElement);
+
+  const examlesList = document.createElement("ul");
+
+  const exampleElementTitle = "Examples";
+  const exampleRoute = `#${routing.routes.examples}`;
+  const exampleElementListItem = document.createElement("li");
+
+  const elementLink = document.createElement("a");
+  elementLink.href = exampleRoute;
+  elementLink.innerHTML = exampleElementTitle;
+
+  examlesList.appendChild(exampleElementListItem);
+
+  exampleElementListItem.appendChild(elementLink);
+
+  elementMainPage.appendChild(examlesList);
+  element.appendChild(elementMainPage);
+
   routing.getCurrentRoute().subscribe((e) => {
     console.log("found route", e.foundRoute);
     switch (e.foundRoute) {
@@ -22,6 +45,10 @@ function component() {
       case routing.routes.examples:
         element.innerHTML = "";
         element.appendChild(examplesList());
+        break;
+      default:
+        element.innerHTML = "";
+        element.appendChild(elementMainPage);
         break;
     }
   });
