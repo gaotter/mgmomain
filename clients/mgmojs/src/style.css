@@ -7,28 +7,32 @@ body {
 }
 
 ul {
-     list-style-type: circle; 
+    list-style-type: none;
     color: whitesmoke;
     cursor: pointer;
-    
+
     border-radius: 5px;
     letter-spacing: 1px;
     font-size: 16px;
     background-color: #fdb467;
     width: 30%;
-  }
+}
 
+li:before {
+    content: "🗨";
+    padding-right: 2px;
+}
 
 button {
-     box-shadow: 0px 5px 5px 0px rgb(40, 38, 36, 0.3); 
+    box-shadow: 0px 2px 2px 0px rgb(40, 38, 36, 0.3);
     color: whitesmoke;
-    
+
     border-radius: 5px;
     letter-spacing: 1px;
     font-size: 16px;
     background-color: #fdb467;
     border-width: 0;
-    margin: 3px;
+    margin: 3px 3px 5px 0;
 }
 p {
     background-color: whitesmoke;
@@ -40,9 +44,10 @@ p {
     border-radius: 5px;
     width: 60%;
     min-width: 300px;
+    max-width: 900px;
     height: 100vh;
     background-color: #efe9e4;
-    color:#282624;
+    color: #282624;
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px 0 10px;
@@ -50,6 +55,6 @@ p {
 
 h1 {
     text-align: center;
-    color:#282624;
+    color: #282624;
     line-height: normal;
 }

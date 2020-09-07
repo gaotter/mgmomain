@@ -226,9 +226,7 @@ class ObserverAsAClass {
   next(data) {
     console.log("sub", data);
     this._currentElement.innerHTML = "";
-    const text = `I got some data from the observable yay!! 😋: ${JSON.stringify(
-      data
-    )}`;
+    const text = `I got some data from the observable yay!! 😎: ${JSON.stringify(data)} at ${(new Date()).getTime()}`;
 
     this._currentElement.innerHTML = text;
   }
