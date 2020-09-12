@@ -1,6 +1,15 @@
-import { Observable, fromEvent, from, of } from "rxjs";
+import { Observable, fromEvent, from, of, combineLatest } from "rxjs";
 import { ajax } from "rxjs/ajax";
-import { map } from "rxjs/operators";
+import {
+  tap,
+  map,
+  delay,
+  mergeMap,
+  switchMap,
+  concatMap,
+  elementAt,
+  timeout,
+} from "rxjs/operators";
 
 export default function observableExample() {
   const observableExample = document.createElement("div");
@@ -14,7 +23,10 @@ export default function observableExample() {
 
   function setUpNextLogic() {
     let currentIndex = 0;
-    const examplesList = [() => fromObservableExample(), () => pipesObservableExample()];
+    const examplesList = [
+      () => fromObservableExample(),
+      () => pipesObservableExample(),
+    ];
 
     const nextButton = document.createElement("button");
     nextButton.innerHTML = "Next example";
@@ -130,7 +142,7 @@ export default function observableExample() {
     observableExample.appendChild(observableButton);
     observableExample.appendChild(showArrayExample);
     observableExample.appendChild(fromAjaxExampleButton);
-    
+
     const observerOnButtonEvent = new ObserverAsAClass(observableExample);
     const observerOnArray = new ObserverAsAClass(observableExample);
     const observerOnObject = new ObserverAsAClass(observableExample);
@@ -139,13 +151,10 @@ export default function observableExample() {
     // en obsevable.
     const observableFromButtonEvent = fromEvent(observableButton, "click");
 
-    
-
     // setter opp to observable som lytter på click eventet
     observableFromButtonEvent.subscribe(observerOnButtonEvent);
 
     showArrayExample.onclick = () => {
-
       const testArray = ["Hei", "på", "deg"];
       // her gjøres en array om til en observable, der hver element blir trigget en etter en.
       const observableFromArray = from(testArray);
@@ -158,12 +167,10 @@ export default function observableExample() {
     };
 
     fromAjaxExampleButton.onclick = () => {
-     
       const formAjax = ajax("/api/ping?data=test");
 
       formAjax.subscribe(observerOnServerdata);
     };
-
   }
 
   function obsevablePipesExample() {
@@ -179,39 +186,68 @@ export default function observableExample() {
     observableExample.appendChild(observableButton);
     observableExample.appendChild(showArrayExample);
     observableExample.appendChild(fromAjaxExampleButton);
-    
+
     const observerOnButtonEvent = new ObserverAsAClass(observableExample);
     const observerOnArray = new ObserverAsAClass(observableExample);
-    const observerOnObject = new ObserverAsAClass(observableExample);
     const observerOnServerdata = new ObserverAsAClass(observableExample);
     // her brukes en hjelpemetode som gjør det veldig enkelt å gjøre om et dom event til
     // en obsevable.
-    const observableFromButtonEvent = fromEvent(observableButton, "click");
-
-    
+    const observableFromButtonEvent = fromEvent(observableButton, "click").pipe(
+      map((event) => "jeg vil gjøre noe basert på dette klikket")
+    );
 
     // setter opp to observable som lytter på click eventet
     observableFromButtonEvent.subscribe(observerOnButtonEvent);
 
     showArrayExample.onclick = () => {
+      function delayPromise(data) {
+        return new Promise((r) => setTimeout(() => r(data), 1000));
+      }
 
-      const testArray = ["Hei", "på", "deg"];
+      const testArray = [
+        "Hei",
+        "på",
+        "deg",
+        "har",
+        "du",
+        "det",
+        "bra",
+        "i",
+        "dag",
+        "?",
+        "😋😋",
+      ];
       // her gjøres en array om til en observable, der hver element blir trigget en etter en.
-      const observableFromArray = from(testArray);
+      const observableFromArray = from(testArray).pipe(
+        concatMap((v) => from(delayPromise(v)))
+      );
       observableFromArray.subscribe(observerOnArray);
-
-      // her generes en observable som vil sende med objektet til all som subscriber, så complete.
-      const observableFromObj = of({ message: "jeg er bare et enkelt object" });
-
-      observableFromObj.subscribe(observerOnObject);
     };
 
-    fromAjaxExampleButton.onclick = () => {
-     
-      const formAjax = ajax("/api/ping?data=test");
+    const twoInOne = combineLatest(
+      ajax("/api/ping?data=kall1"),
+      ajax("/api/ping?data=kall2")
+    ).pipe(
+      map(([response1, response2]) => {
+        return {
+          response1: response1.response,
+          response2: response2.response,
+        };
+      })
+    );
 
-      formAjax.subscribe(observerOnServerdata);
-    };
+    const callServerButtonEvent = fromEvent(fromAjaxExampleButton, "click");
+
+    // const mappedToFromAjax = callServerButtonEvent.pipe(
+    //   switchMap((e) => ajax("/api/ping?data=test")),
+    //   map((r) => r.response)
+    // );
+
+    const mappedToFromAjax = callServerButtonEvent.pipe(
+      switchMap((e) => twoInOne)
+    );
+
+    mappedToFromAjax.subscribe(observerOnServerdata);
   }
 }
 
@@ -226,7 +262,9 @@ class ObserverAsAClass {
   next(data) {
     console.log("sub", data);
     this._currentElement.innerHTML = "";
-    const text = `I got some data from the observable yay!! 😎: ${JSON.stringify(data)} at ${(new Date()).getTime()}`;
+    const text = `I got some data from the observable yay!! 😎: ${JSON.stringify(
+      data
+    )} at ${new Date().getTime()}`;
 
     this._currentElement.innerHTML = text;
   }
