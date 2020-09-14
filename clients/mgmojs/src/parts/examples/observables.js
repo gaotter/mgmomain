@@ -225,8 +225,8 @@ export default function observableExample() {
     };
 
     const twoInOne = combineLatest(
-      ajax("/api/ping?data=kall1"),
-      ajax("/api/ping?data=kall2")
+      [ajax("/api/ping?data=kall1"),
+      ajax("/api/ping?data=kall2")]
     ).pipe(
       map(([response1, response2]) => {
         return {

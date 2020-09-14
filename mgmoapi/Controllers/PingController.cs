@@ -14,7 +14,7 @@ namespace mgmoapi.Controllers
         public object Get(string data)
         {
             Thread.Sleep(2000);
-            return new { message = "from server " + data };
+            return new { message = "from server " + data, tick = DateTime.Now.Ticks };
         }
     }
 }
