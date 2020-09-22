@@ -1,0 +1,8 @@
+<div *ngIf="testP.articles | async as articles">
+  <div *ngFor="let article of articles">
+    {{article.title }}
+  </div>
+</div>
+<div>
+  <app-examples></app-examples>
+</div>

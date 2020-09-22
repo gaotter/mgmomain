@@ -1,0 +1,2 @@
+<button (click)="getSomeData()">Get data</button>
+<div *ngIf="pingData$ | async as data">{{  data.message }} at  {{data.tick}}</div>
