@@ -1,2 +1,10 @@
+<h1>Rxjs example</h1>
+
 <button (click)="getSomeData()">Get data</button>
-<div *ngIf="pingData$ | async as data">{{  data.message }} at  {{data.tick}}</div>
+<div *ngIf="pingData$ | async as data">
+  {{ data.message }} at {{ data.tick }}
+</div>
+
+<app-event-emitter (eventEmitted)="handelComponentEvent($event)"></app-event-emitter>
+
+<p *ngIf="eventMessage">{{eventMessage}}</p>
