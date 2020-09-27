@@ -1,10 +1,17 @@
 <h1>Rxjs example</h1>
+<section>
+  <button (click)="getSomeData()">Get data</button>
+  <div *ngIf="pingData$ | async as data">
+    {{ data.message }} at {{ data.tick }}
+  </div>
+</section>
+<section>
+  <app-event-emitter
+    (eventEmitted)="handelComponentEvent($event)"
+  ></app-event-emitter>
 
-<button (click)="getSomeData()">Get data</button>
-<div *ngIf="pingData$ | async as data">
-  {{ data.message }} at {{ data.tick }}
-</div>
-
-<app-event-emitter (eventEmitted)="handelComponentEvent($event)"></app-event-emitter>
-
-<p *ngIf="eventMessage">{{eventMessage}}</p>
+  <p *ngIf="eventMessage">{{ eventMessage }}</p>
+</section>
+<section>
+  <app-combine-data></app-combine-data>
+</section>

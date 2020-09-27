@@ -1,0 +1,7 @@
+<div>Skriv inn navnet ditt.</div>
+<input #name type="text" (blur)="onInputNameInputBlur(name.value)">
+<div>Skriv inn alder</div>
+<input #age type="text" (blur)="onAgeInputBlure(age.value)">
+<p>
+   {{compindedElementsResponse$ | async}}
+</p>
