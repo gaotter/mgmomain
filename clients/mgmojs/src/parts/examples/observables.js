@@ -129,6 +129,7 @@ export default function observableExample() {
     );
   }
 
+  // Hjelpe metoder for event osv
   function obsevableFormAnEvent() {
     const observableButton = document.createElement("button");
     observableButton.innerHTML = "Observable from  button";
@@ -190,13 +191,11 @@ export default function observableExample() {
     const observerOnButtonEvent = new ObserverAsAClass(observableExample);
     const observerOnArray = new ObserverAsAClass(observableExample);
     const observerOnServerdata = new ObserverAsAClass(observableExample);
-    // her brukes en hjelpemetode som gjør det veldig enkelt å gjøre om et dom event til
-    // en obsevable.
+    // her mapper jeg om event objektet i en fromEventet til det jeg ønsker brukeren skal se. 
     const observableFromButtonEvent = fromEvent(observableButton, "click").pipe(
       map((event) => "jeg vil gjøre noe basert på dette klikket")
     );
-
-    // setter opp to observable som lytter på click eventet
+    
     observableFromButtonEvent.subscribe(observerOnButtonEvent);
 
     showArrayExample.onclick = () => {
@@ -236,6 +235,7 @@ export default function observableExample() {
       })
     );
 
+    // setter opp to observable som lytter på click eventet
     const callServerButtonEvent = fromEvent(fromAjaxExampleButton, "click");
 
     // const mappedToFromAjax = callServerButtonEvent.pipe(
