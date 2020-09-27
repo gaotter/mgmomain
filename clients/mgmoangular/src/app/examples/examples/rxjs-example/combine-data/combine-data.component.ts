@@ -25,12 +25,12 @@ export class CombineDataComponent {
   constructor(private dataservice: RxjsExampleDataService) {}
 
   onInputNameInputBlur(name) {
-    console.log("blure")
+    console.log(`name entered ${name}`)
     this.nameAction$.next(name);
   }
 
   onAgeInputBlure(age) {
-    console.log("blure")
+    console.log(`age entred ${age}`)
     this.ageAction$.next(age);
   }
 }
