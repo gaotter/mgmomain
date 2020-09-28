@@ -53,16 +53,9 @@ export default function observableExample() {
   function basicObservableExample() {
     appendParagrapth(
       observableExample,
-      `Eksempel en viser hvordan man lager en observable i sin enkleste form. 
-      Ved å implementer en observer som har tre funksjoner: next() som blir kalt hver gang next blir kalt i observable, 
-      error() som blir kalt en gang i alle som observer, men som stopper observable, og complete() som kaller observer completet og ferdigstile/stopper observables. `
-    );
-
-    appendParagrapth(
-      observableExample,
-      `Det som er viktig å kunne er at etter error eller complete er observable kansellert og ferdig. 
-      Da må man sette opp en ny observble og observere må subscripe på den nye obsevable. Observable som implement complete rydder opp seg selv på en måte. 
-      Grunnen er at en observable older på referanser til alle observers, noe som kan gi minne lekaskje om den ikke gjør seg ferdig og rydder opp.  `
+      `Eksempel under viser hvordan man lager en observable i sin enkleste form. 
+      Ved å implementer en observer som har tre funksjoner: next() som blir kalt hver gang next blir kalt i observable, error() som blir kalt en gang i alle som observer, 
+      men som avslutter observable, og complete() som kaller observer complete og avslutter observable .  Om en observable er avsluttet må man lage en ny å subscribe på den`
     );
 
     observableAsClassExample();
@@ -100,9 +93,9 @@ export default function observableExample() {
         subscriber.next({ message: "from timer" });
       }, 1000);
 
-      //   setTimeout(() => {
-      //     subscriber.error({ message: "500" });
-      //   }, 2000);
+      // setTimeout(() => {
+      //   subscriber.error({ message: "500" });
+      // }, 2000);
 
       //   setTimeout(() => {
       //     subscriber.complete();
@@ -111,9 +104,11 @@ export default function observableExample() {
       setTimeout(() => {
         subscriber.next({ message: "am I to late to the game?" });
       }, 4000);
-    });
 
-    //observableExample.appendChild(getDataButton);
+      setTimeout(() => {
+        subscriber.complete();
+      }, 5000);
+    });
 
     const observer1 = new ObserverAsAClass(observableExample);
     const observer2 = new ObserverAsAClass(observableExample);
@@ -191,11 +186,11 @@ export default function observableExample() {
     const observerOnButtonEvent = new ObserverAsAClass(observableExample);
     const observerOnArray = new ObserverAsAClass(observableExample);
     const observerOnServerdata = new ObserverAsAClass(observableExample);
-    // her mapper jeg om event objektet i en fromEventet til det jeg ønsker brukeren skal se. 
+    // her mapper jeg om event objektet i en fromEventet til det jeg ønsker brukeren skal se.
     const observableFromButtonEvent = fromEvent(observableButton, "click").pipe(
       map((event) => "jeg vil gjøre noe basert på dette klikket")
     );
-    
+
     observableFromButtonEvent.subscribe(observerOnButtonEvent);
 
     showArrayExample.onclick = () => {
@@ -221,19 +216,7 @@ export default function observableExample() {
         concatMap((v) => from(delayPromise(v)))
       );
       observableFromArray.subscribe(observerOnArray);
-    };
-
-    const twoInOne = combineLatest(
-      [ajax("/api/ping?data=kall1"),
-      ajax("/api/ping?data=kall2")]
-    ).pipe(
-      map(([response1, response2]) => {
-        return {
-          response1: response1.response,
-          response2: response2.response,
-        };
-      })
-    );
+    };  
 
     // setter opp to observable som lytter på click eventet
     const callServerButtonEvent = fromEvent(fromAjaxExampleButton, "click");
@@ -243,9 +226,22 @@ export default function observableExample() {
     //   map((r) => r.response)
     // );
 
+      // bruker en compinder to å slå sammen to observables
+      const twoInOne = combineLatest([
+        ajax("/api/ping?data=kall1"),
+        ajax("/api/ping?data=kall2"),
+      ]).pipe(
+        map(([response1, response2]) => {
+          return {
+            response1: response1.response,
+            response2: response2.response,
+          };
+        })
+      );
+
     const mappedToFromAjax = callServerButtonEvent.pipe(
       switchMap((e) => twoInOne)
-    );
+    );    
 
     mappedToFromAjax.subscribe(observerOnServerdata);
   }
