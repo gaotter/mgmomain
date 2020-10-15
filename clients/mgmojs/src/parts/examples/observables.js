@@ -97,9 +97,9 @@ export default function observableExample() {
       //   subscriber.error({ message: "500" });
       // }, 2000);
 
-      //   setTimeout(() => {
-      //     subscriber.complete();
-      //   }, 3000);
+        setTimeout(() => {
+          subscriber.complete();
+        }, 3000);
 
       setTimeout(() => {
         subscriber.next({ message: "am I to late to the game?" });

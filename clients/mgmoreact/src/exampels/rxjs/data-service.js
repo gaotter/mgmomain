@@ -3,7 +3,7 @@ import { map, switchMap, shareReplay } from "rxjs/operators";
 import { ajax } from "rxjs/ajax";
 
 export class PingService {
-  _ferchDataSubject = new Subject();
+  _ferchDataSubject = new Subject("test");
 
   pingData$ = this._ferchDataSubject.pipe(
     switchMap((data) => ajax(`/api/ping?data=${data}`)),

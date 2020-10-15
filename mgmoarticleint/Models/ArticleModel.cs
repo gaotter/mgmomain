@@ -11,7 +11,6 @@ namespace mgmoarticleint.Models
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime Published { get; set; }
-
         public IEnumerator<string> ImageUris { get; set; }
     }
 }
