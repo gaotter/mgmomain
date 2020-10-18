@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/a960632e-7af0-4072-b2db-85216ef7ae00/resourceGroups/mgmomain/providers/Microsoft.Web/sites/mgmoangular",
+    "appService.deploySubpath": "dist\\mgmoangular"
+}
