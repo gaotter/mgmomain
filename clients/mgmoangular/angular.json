@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mgmoangular",
+            "outputPath": "dist",
             "index": "src/client/index.html",
             "main": "src/client/main.ts",
             "polyfills": "src/client/polyfills.ts",
@@ -25,7 +25,12 @@
             "aot": true,
             "assets": [
               "src/client/favicon.ico",
-              "src/client/assets"
+              "src/client/assets",
+              {
+                "glob": "**/*.*",
+                "input": "src/server/",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/client/styles.scss"
@@ -107,6 +112,7 @@
             ],
             "exclude": [
               "**/node_modules/**"
+
             ]
           }
         },
