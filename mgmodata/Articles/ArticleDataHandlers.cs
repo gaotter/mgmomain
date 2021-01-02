@@ -52,13 +52,19 @@ namespace mgmoarticledata.Articles
             return articlesTable;
         }
 
-        public IEnumerable<ArticleModel> GetArticles(string area)
+        public IEnumerable<ArticleModel> GetArticles(string area = null)
         {
             var articleTable = GetArticleTable();
 
-            var queryAll = new TableQuery<ArticleData>().
+            var queryAll = new TableQuery<ArticleData>();
+
+            if (area != null)
+            {
+                queryAll = new TableQuery<ArticleData>().
                 Where(TableQuery.
                 GenerateFilterCondition(nameof(ArticleData.PartitionKey), QueryComparisons.Equal, area));
+            }
+            
 
             var articles = articleTable.ExecuteQuery(queryAll);
 

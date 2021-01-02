@@ -22,7 +22,7 @@ namespace mgmomain.Data
             return _articleHandler.GetArticle("ssss", "ssss").Content;
         }
 
-        public IEnumerable<ArticleViewModel> GetAllAzureArticles(string category)
+        public IEnumerable<ArticleViewModel> GetAllAzureArticles(string category = null)
         {
             return _articleHandler.GetArticles(category).Select(model => ArticleToViewModel.Map(model));
         }

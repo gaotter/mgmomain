@@ -21,7 +21,7 @@ namespace mgmoapi.Controllers
         
         public IEnumerable<ArticleViewModel> GetAllArticles()
         {
-            return _articleService.GetAllAzureArticles("gaming");
+            return _articleService.GetAllAzureArticles();
         }
     }
 }
