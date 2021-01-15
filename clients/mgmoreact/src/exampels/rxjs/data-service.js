@@ -1,4 +1,4 @@
-import { Subject, BehaviorSubject } from "rxjs";
+import { Subject } from "rxjs";
 import { map, switchMap, shareReplay } from "rxjs/operators";
 import { ajax } from "rxjs/ajax";
 

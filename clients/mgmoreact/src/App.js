@@ -1,5 +1,4 @@
 import React from "react";
-import ArticleList from "./aricles/articles-list";
 import UseRxjs from "./exampels/rxjs/using-rxjs";
 import "./App.css";
 
