@@ -5,5 +5,8 @@
     ],
     "appService.defaultWebAppToDeploy": "/subscriptions/a960632e-7af0-4072-b2db-85216ef7ae00/resourceGroups/mgmomain/providers/Microsoft.Web/sites/mgmoangular",
     "appService.deploySubpath": "dist",
-    "appService.showBuildDuringDeployPrompt": true
+    "appService.showBuildDuringDeployPrompt": true,
+    "staticWebApps.appSubpath": "/",
+    "staticWebApps.apiSubpath": "api",
+    "staticWebApps.outputSubpath": "dist"
 }

@@ -1,4 +1,4 @@
-<ul *ngIf="articleService.$data | async as articles">
+<ul class="category-list" *ngIf="articleService.$data | async as articles">
   <li class="article-item" *ngFor="let article of articles">
     <h3 >{{ article.title }}</h3>
     <div>Category: {{ article.category}}</div>

@@ -1,0 +1,29 @@
+@mixin black-white-theme {
+  body {
+    background-color: black;
+    height: 100%;
+    // color: whitesmoke;
+    font: 1em sans-serif;
+    line-height: 18px;
+  }
+
+  .main {
+    //border-radius: 5px;
+    width: 80%;
+    min-width: 300px;
+    max-width: 1000px;
+    height: 100vh;
+    background-color: white;
+    // color: #282624;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px 0 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 5px;
+
+
+  }
+}

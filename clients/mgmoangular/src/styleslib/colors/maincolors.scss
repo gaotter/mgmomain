@@ -1,0 +1,6 @@
+@import './whiteblacktheme.scss';
+
+
+@mixin main-theme {
+  @include black-white-theme;
+}
