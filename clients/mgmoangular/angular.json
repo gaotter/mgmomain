@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src/client",
-      "prefix": "app",
+      "prefix": "mgmo",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
