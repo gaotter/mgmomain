@@ -1,17 +1,18 @@
 .title-area {
+  margin: 0 auto;
   background-image: url("/assets/title-background.jpg");
-height: 500px;
-margin: 0;
-.title-content {
-  color: #555555;
-  text-align: center;
-  margin: auto;
-  width: 90%;
-  h1 {
-    margin: 0;
-    padding-top: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  height: 500px;
+  margin: 0;
+  .title-content {
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    h1 {
+      margin: 0;
+      padding-top: 100px;
+    }
   }
-}
-
-
 }
