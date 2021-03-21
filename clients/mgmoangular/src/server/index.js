@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const environment = process.env.environment;
 
-const publicweb = './dist' || './dist';
+const publicweb = environment === 'prod' ? './' : './dist';
 const app = express();
 
 app.use(express.static(publicweb));
@@ -11,5 +12,5 @@ app.get('*', (req, res) => {
 });
 app.use(cors());
 
-const port = '8080' || '3000';
+const port = process.env.PORT;
 app.listen(port, () => console.log(`API running on localhost:${port}`));
