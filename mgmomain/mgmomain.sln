@@ -9,17 +9,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoarticledata", "..\mgmod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoarticleblo", "..\mgmobl\mgmoarticleblo.csproj", "{A9948DAE-8698-4DDB-8ABE-932C310DD5DF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoarticlient", "..\mgmoarticleint\mgmoarticlient.csproj", "{5029F972-D941-40EB-A670-E835EF46374A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoarticontracts", "..\mgmoarticleint\mgmoarticontracts.csproj", "{5029F972-D941-40EB-A670-E835EF46374A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoconnector", "..\mgmoconnector\mgmoconnector.csproj", "{73F5951A-E14C-451F-8F1F-810F2ABDA4FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoapi", "..\mgmoapi\mgmoapi.csproj", "{9C7971FF-2745-4797-A3E3-777CD21D7904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgmoexamplesdata", "..\mgmoexamplesdata\mgmoexamplesdata.csproj", "{0A12983A-B86E-4D8A-991C-66E72211E1FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoexamplesdata", "..\mgmoexamplesdata\mgmoexamplesdata.csproj", "{0A12983A-B86E-4D8A-991C-66E72211E1FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgmoexampleblo", "..\mgmoexampleblo\mgmoexampleblo.csproj", "{EE4481DE-5D65-4517-ABF0-F73FD601D35F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoexampleblo", "..\mgmoexampleblo\mgmoexampleblo.csproj", "{EE4481DE-5D65-4517-ABF0-F73FD601D35F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgmoexampleinterface", "..\mgmoexampleinterface\mgmoexampleinterface.csproj", "{79D2395F-2972-49FE-A8F1-07A0A6BD045B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmoexampleinterface", "..\mgmoexampleinterface\mgmoexampleinterface.csproj", "{79D2395F-2972-49FE-A8F1-07A0A6BD045B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{CE45817B-45C4-4AE3-91B1-88D389C72932}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{8B4B475F-966C-477B-8540-B0094ADAE13F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +70,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{71E0895F-A8EA-48B3-B830-BDE0FA8F58C5} = {CE45817B-45C4-4AE3-91B1-88D389C72932}
+		{A9948DAE-8698-4DDB-8ABE-932C310DD5DF} = {CE45817B-45C4-4AE3-91B1-88D389C72932}
+		{5029F972-D941-40EB-A670-E835EF46374A} = {CE45817B-45C4-4AE3-91B1-88D389C72932}
+		{0A12983A-B86E-4D8A-991C-66E72211E1FB} = {8B4B475F-966C-477B-8540-B0094ADAE13F}
+		{EE4481DE-5D65-4517-ABF0-F73FD601D35F} = {8B4B475F-966C-477B-8540-B0094ADAE13F}
+		{79D2395F-2972-49FE-A8F1-07A0A6BD045B} = {8B4B475F-966C-477B-8540-B0094ADAE13F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5A5616D-804C-41BF-9702-4095FF8A3E01}

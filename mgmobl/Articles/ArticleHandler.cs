@@ -1,5 +1,5 @@
-﻿using mgmoarticleint.Articles;
-using mgmoarticleint.Models;
+﻿using mgmoarticontracts.Articles;
+using mgmoarticontracts.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

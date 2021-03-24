@@ -2,7 +2,7 @@
 using mgmoarticleblo.Articles;
 using mgmoarticledata;
 using mgmoarticledata.Articles;
-using mgmoarticleint.Articles;
+using mgmoarticontracts.Articles;
 using mgmomain.Data;
 using Microsoft.Extensions.Configuration;
 using System;

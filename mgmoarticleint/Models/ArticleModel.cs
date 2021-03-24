@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace mgmoarticleint.Models
+namespace mgmoarticontracts.Models
 {
    public class ArticleModel
     {

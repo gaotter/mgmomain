@@ -1,6 +1,6 @@
 ﻿using mgmoarticledata.Models;
-using mgmoarticleint.Articles;
-using mgmoarticleint.Models;
+using mgmoarticontracts.Articles;
+using mgmoarticontracts.Models;
 using Microsoft.Azure.Cosmos.Table;
 using System;
 using System.Collections.Generic;

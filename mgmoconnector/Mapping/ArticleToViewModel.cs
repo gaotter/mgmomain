@@ -1,4 +1,4 @@
-﻿using mgmoarticleint.Models;
+﻿using mgmoarticontracts.Models;
 using mgmoconnector.ViewModels;
 using System;
 using System.Collections.Generic;

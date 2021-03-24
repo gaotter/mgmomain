@@ -1,9 +1,9 @@
-﻿using mgmoarticleint.Models;
+﻿using mgmoarticontracts.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace mgmoarticleint.Articles
+namespace mgmoarticontracts.Articles
 {
     public interface IArticleData
     {

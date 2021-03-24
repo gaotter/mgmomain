@@ -1,5 +1,5 @@
 ﻿using mgmoarticleblo.Articles;
-using mgmoarticleint.Models;
+using mgmoarticontracts.Models;
 using mgmoconnector.Mapping;
 using mgmoconnector.ViewModels;
 using System;

@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using mgmomain.Data;
 using mgmoarticleblo.Articles;
-using mgmoarticleint.Articles;
+using mgmoarticontracts.Articles;
 using mgmoarticledata.Articles;
 using Autofac;
 using mgmoconnector;
