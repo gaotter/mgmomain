@@ -1,0 +1,17 @@
+﻿@page "/article/{ArticleCategory}/{ArticleTitle}"
+
+@inject NavigationManager navManager
+<h3>article</h3>
+
+@code {
+    [Parameter]
+    public string ArticleCategory { get; set; }
+
+    [Parameter]
+    public string ArticleTitle { get; set; }
+
+
+
+}
+
+<div></div>

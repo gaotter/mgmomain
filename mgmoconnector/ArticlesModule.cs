@@ -4,6 +4,7 @@ using mgmoarticledata;
 using mgmoarticledata.Articles;
 using mgmoarticontracts.Articles;
 using mgmomain.Data;
+using MgmoTableStorageBase;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;

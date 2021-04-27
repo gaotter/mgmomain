@@ -5,22 +5,21 @@ using Microsoft.Azure.Cosmos.Table;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MgmoTableStorageBase;
 
 namespace mgmoarticledata.Articles
 {
-    public class ArticleDataHandlers : IArticleData
+    public class ArticleDataHandlers : TableStorageBase, IArticleData
     {
-        ConnectionInfo _connectionInfo;
-        CloudStorageAccount storageAccount;
-        CloudTableClient tableClinet;
         string categoryesKey = "AllCategories234";
 
-        public ArticleDataHandlers(ConnectionInfo connectionInfo)
+        public ArticleDataHandlers(ConnectionInfo connectionInfo) : base(connectionInfo)
         {
             _connectionInfo = connectionInfo;
 
             storageAccount = CloudStorageAccount.Parse(connectionInfo.ConnectionString);
-            tableClinet = storageAccount.CreateCloudTableClient();        }
+            tableClinet = storageAccount.CreateCloudTableClient();
+        }
         public ArticleModel GetArticle(string articleArea, string articleId)
         {
             var articlesTable = GetArticleTable();
@@ -64,7 +63,7 @@ namespace mgmoarticledata.Articles
                 Where(TableQuery.
                 GenerateFilterCondition(nameof(ArticleData.PartitionKey), QueryComparisons.Equal, area));
             }
-            
+
 
             var articles = articleTable.ExecuteQuery(queryAll);
 
