@@ -37,7 +37,7 @@ namespace mgmoconnector
                 ConnectionString = conString,
                 Container = "articles"
             };
-            builder.RegisterType<ArticleService>();
+            builder.RegisterType<ArticleService>().As<IArticleService>();
             builder.RegisterType<ArticleDataHandlers>().As<IArticleData>().WithParameter("connectionInfo", connectionInfo);
             builder.RegisterType<ArticleHandler>().As<IAricleHandler>();
         }

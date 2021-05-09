@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace mgmomain.Data
 {
-    public class ArticleService
+    public class ArticleService : IArticleService
     {
         IAricleHandler _articleHandler;
         public ArticleService(IAricleHandler aricleHandler)
@@ -17,7 +17,7 @@ namespace mgmomain.Data
             _articleHandler = aricleHandler;
         }
 
-        public string GetArticleTitle() 
+        public string GetArticleTitle()
         {
             return _articleHandler.GetArticle("ssss", "ssss").Content;
         }

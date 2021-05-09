@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To MGMO</h1>
+    <div class="container">
+        <div class="row">
+            <section class="col-sm">
+                <h2>Articles</h2>
+                <ul class="list-group text-left">
+                    @foreach (var article in Model.Articles)
+                    {
+                        <li class="list-group-item">
+                            <h3>@article.Title</h3>
+                            <div>@article.Category</div>
+                        </li>
+                    }
+                </ul>
+            </section>
+            <section class="col-sm">
+                <h2>Examples</h2>
+            </section>
+        </div>
+    </div>
+   
+</div>

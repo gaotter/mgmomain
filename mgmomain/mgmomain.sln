@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{2D8F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmotablestoragebase", "..\TableStorage\mgmotablestoragebase.csproj", "{76B0A54C-C5B7-4B60-9BE0-4313B8040AAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgmorazormain", "..\mgmorazormain\mgmorazormain\mgmorazormain.csproj", "{F88F9930-9394-48C7-831C-2404CA5928B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{76B0A54C-C5B7-4B60-9BE0-4313B8040AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76B0A54C-C5B7-4B60-9BE0-4313B8040AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76B0A54C-C5B7-4B60-9BE0-4313B8040AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F88F9930-9394-48C7-831C-2404CA5928B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F88F9930-9394-48C7-831C-2404CA5928B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F88F9930-9394-48C7-831C-2404CA5928B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F88F9930-9394-48C7-831C-2404CA5928B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,9 +12,9 @@ namespace mgmoapi.Controllers
     [Route("[controller]")]
     public class ArticlesController : ControllerBase
     {
-        public ArticleService _articleService;
+        public IArticleService _articleService;
 
-        public ArticlesController(ArticleService articleService)
+        public ArticlesController(IArticleService articleService)
         {
             _articleService = articleService;
         }
