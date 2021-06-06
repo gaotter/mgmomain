@@ -12,5 +12,7 @@ namespace mgmoarticledata.Models
         public string Content { get; set; }
 
         public IEnumerator<string> ImageUris { get; set; }
+
+        public bool IsPublished { get; set; }
     }
 }

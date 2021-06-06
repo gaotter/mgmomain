@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace mgmoarticontracts.Articles
 {
@@ -10,5 +11,7 @@ namespace mgmoarticontracts.Articles
         ArticleModel GetArticle(string area, string articleID);
 
         IEnumerable<ArticleModel> GetArticles(string area);
+
+        Task<bool> AddUpdateArticle(ArticleModel article);
     }
 }

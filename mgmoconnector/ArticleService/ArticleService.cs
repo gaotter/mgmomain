@@ -26,5 +26,14 @@ namespace mgmomain.Data
         {
             return _articleHandler.GetArticles(category).Select(model => ArticleToViewModel.Map(model));
         }
+
+        public async Task<ArticleViewModel> StoreArticle(ArticleViewModel article)
+        {
+            var model = ArticleToViewModel.Map(article);
+            var updatedModel = await _articleHandler.StoreChanges(model);
+
+            return ArticleToViewModel.Map(updatedModel);
+
+        }
     }
 }

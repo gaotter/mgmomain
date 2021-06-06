@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MgmoTableStorageBase;
+using System.Threading.Tasks;
 
 namespace mgmoarticledata.Articles
 {
@@ -84,17 +85,54 @@ namespace mgmoarticledata.Articles
             return articles.Select(a => a.PartitionKey);
         }
 
-        private static ArticleModel Map(ArticleData a)
+        private ArticleModel Map(ArticleData a)
         {
-            return new ArticleModel
+            return new ArticleModel(a.RowKey, a.PartitionKey)
             {
-                Category = a.PartitionKey,
-                Id = a.RowKey,
                 Content = a.Content,
                 Published = a.Timestamp.DateTime,
                 Title = a.Title,
-                ImageUris = a.ImageUris
+                ImageUris = a.ImageUris,
+                IsPublished = a.IsPublished
+
             };
+        }
+
+        private ArticleData Map(ArticleModel articleModel)
+        {
+            return new ArticleData
+            {
+                Title = articleModel.Title,
+                Content = articleModel.Content,
+                ImageUris = articleModel.ImageUris,
+                IsPublished = articleModel.IsPublished,
+                PartitionKey = articleModel.Category,
+                RowKey = articleModel.Id != null ? articleModel.Id : Guid.NewGuid().ToString()
+            };
+        }
+
+        public async Task<bool> AddUpdateArticle(ArticleModel article)
+        {
+            var tableClient = GetArticleTable();
+
+            var articleData = Map(article);
+
+            var insertOperation = TableOperation.InsertOrMerge(articleData);
+
+            bool stored;
+            try
+            {
+                await tableClient.ExecuteAsync(insertOperation);
+                stored = true;
+            }
+            catch
+            {
+                stored = false;
+                // logg
+            }
+
+            return stored;
+
         }
     }
 }

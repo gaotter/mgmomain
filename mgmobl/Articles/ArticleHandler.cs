@@ -14,6 +14,16 @@ namespace mgmoarticleblo.Articles
             _articleData = articleData;
         }
 
+        public ArticleModel NewArticle(string id, string category)
+        {
+            return new ArticleModel(id, category);
+        }
+
+        public ArticleModel StoreChanges(ArticleModel articleModel)
+        {
+            throw new NotImplementedException();
+        }
+
         ArticleModel IAricleHandler.GetArticle(string category, string articleId)
         {
             return _articleData.GetArticle(articleId, "");
@@ -23,5 +33,7 @@ namespace mgmoarticleblo.Articles
         {
             return _articleData.GetArticles(category);
         }
+
+
     }
 }

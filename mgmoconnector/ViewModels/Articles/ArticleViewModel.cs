@@ -7,9 +7,12 @@ namespace mgmoconnector.ViewModels
 {
     public class ArticleViewModel
     {
+        public string Id { get; set; }
         public string Category { get; set; }
 
         public string Title { get; set; }
+
+        public bool IsPublished { get; set; }
 
         public DateTime PublishDate { get; set; }
 
