@@ -23,5 +23,11 @@ namespace mgmoapi.Controllers
         {
             return _articleService.GetAllAzureArticles();
         }
+
+        [HttpPost]
+        public async  Task<ActionResult<ArticleViewModel>> PostArticle(ArticleViewModel article)
+        {
+            return await _articleService.StoreArticle(article);
+        }
     }
 }

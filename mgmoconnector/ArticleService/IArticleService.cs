@@ -1,5 +1,6 @@
 ﻿using mgmoconnector.ViewModels;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace mgmomain.Data
 {
@@ -7,5 +8,7 @@ namespace mgmomain.Data
     {
         IEnumerable<ArticleViewModel> GetAllAzureArticles(string category = null);
         string GetArticleTitle();
+
+        Task<ArticleViewModel> StoreArticle(ArticleViewModel article);
     }
 }

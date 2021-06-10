@@ -111,27 +111,29 @@ namespace mgmoarticledata.Articles
             };
         }
 
-        public async Task<bool> AddUpdateArticle(ArticleModel article)
+        public async Task<ArticleModel> AddUpdateArticle(ArticleModel article)
         {
             var tableClient = GetArticleTable();
-
+                
             var articleData = Map(article);
 
             var insertOperation = TableOperation.InsertOrMerge(articleData);
 
-            bool stored;
             try
             {
-                await tableClient.ExecuteAsync(insertOperation);
-                stored = true;
+                var result = await tableClient.ExecuteAsync(insertOperation);
+
+                var r = result.Result;
+
+
+                return Map(result.Result as ArticleData);
             }
-            catch
+            catch(Exception ex)
             {
-                stored = false;
+                throw ex;
                 // logg
             }
 
-            return stored;
 
         }
     }

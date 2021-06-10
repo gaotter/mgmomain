@@ -12,6 +12,6 @@ namespace mgmoarticontracts.Articles
 
         IEnumerable<ArticleModel> GetArticles(string area);
 
-        Task<bool> AddUpdateArticle(ArticleModel article);
+        Task<ArticleModel> AddUpdateArticle(ArticleModel article);
     }
 }

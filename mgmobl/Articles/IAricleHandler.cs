@@ -8,13 +8,13 @@ namespace mgmoarticleblo.Articles
 {
     public interface IAricleHandler
     {
-        ArticleModel GetArticle(string category, string articleId);
+        public ArticleModel GetArticle(string category, string articleId);
 
-        IEnumerable<ArticleModel> GetArticles(string category);
+       public IEnumerable<ArticleModel> GetArticles(string category);
 
-        ArticleModel NewArticle(string id, string category);
+       
 
-        Task<ArticleModel> StoreChanges(ArticleModel articleModel);
+       public Task<ArticleModel> StoreChanges(ArticleModel articleModel);
 
     }
 }

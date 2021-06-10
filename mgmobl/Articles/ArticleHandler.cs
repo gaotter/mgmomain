@@ -3,6 +3,7 @@ using mgmoarticontracts.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace mgmoarticleblo.Articles
 {
@@ -19,21 +20,21 @@ namespace mgmoarticleblo.Articles
             return new ArticleModel(id, category);
         }
 
-        public ArticleModel StoreChanges(ArticleModel articleModel)
-        {
-            throw new NotImplementedException();
-        }
+     
 
-        ArticleModel IAricleHandler.GetArticle(string category, string articleId)
+        public ArticleModel GetArticle(string category, string articleId)
         {
             return _articleData.GetArticle(articleId, "");
         }
 
-        IEnumerable<ArticleModel> IAricleHandler.GetArticles(string category)
+        public IEnumerable<ArticleModel> GetArticles(string category)
         {
             return _articleData.GetArticles(category);
         }
 
-
+        public async Task<ArticleModel> StoreChanges(ArticleModel articleModel)
+        {
+            return await _articleData.AddUpdateArticle(articleModel);
+        }
     }
 }
