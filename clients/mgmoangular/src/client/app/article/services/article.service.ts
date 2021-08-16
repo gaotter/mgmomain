@@ -14,4 +14,8 @@ export class ArticleService {
   constructor(private connectionsService:ConnectionsService) {
     this.$data = connectionsService.get<{}, IArticle[]>("/articles", {});
   }
+
+  postArticle(article:IArticle):void {
+    this.connectionsService.post("/articles", article).subscribe(d => console.log(d));
+  }
 }

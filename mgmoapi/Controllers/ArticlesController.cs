@@ -25,7 +25,7 @@ namespace mgmoapi.Controllers
         }
 
         [HttpPost]
-        public async  Task<ActionResult<ArticleViewModel>> PostArticle(ArticleViewModel article)
+        public async Task<ActionResult<ArticleViewModel>> PostArticle(ArticleViewModel article)
         {
             return await _articleService.StoreArticle(article);
         }
