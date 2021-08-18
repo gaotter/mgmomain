@@ -15,7 +15,6 @@ import { TitleSectionComponent } from './main/components/title-section/title-sec
   ],
   imports: [
     BrowserModule,
-    MainArticleModule,
     AppRoutingModule,
     HttpClientModule,
     ExamplesModule
