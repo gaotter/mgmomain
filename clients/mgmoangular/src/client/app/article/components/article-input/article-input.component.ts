@@ -4,7 +4,6 @@ import { IArticle } from '../../models/article.model';
 import { ArticleService } from '../../services/article.service';
 
 @Component({
-  selector: 'mgmo-article-input',
   templateUrl: './article-input.component.html',
   styleUrls: ['./article-input.component.scss']
 })

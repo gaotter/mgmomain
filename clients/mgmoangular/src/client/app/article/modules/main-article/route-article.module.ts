@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleMainComponent } from '../../components/article-main/article-main.component';
 import { ArticleInputComponent } from '../../components/article-input/article-input.component';
+import { ArticleListComponent } from '../../components/article-list/article-list.component';
 
 const routes: Routes = [
   {
@@ -12,9 +13,19 @@ const routes: Routes = [
       {
         path:'new',
         component:ArticleInputComponent
+      },
+      {
+        path:'list',
+        component:ArticleListComponent
+      },
+      {
+        path:'',
+        redirectTo:'list',
+        pathMatch:'full'
       }
     ]
   }
+
 ];
 
 @NgModule({

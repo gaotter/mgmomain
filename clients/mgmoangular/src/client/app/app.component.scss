@@ -1,5 +1,13 @@
 .main {
   display: flex;
-  justify-content: space-around;
-  text-align: center;
+  flex-direction: column;
+}
+
+section {
+  padding: 30px;
+}
+
+nav {
+  text-align: start;
+  background-color: #777;
 }
