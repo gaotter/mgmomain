@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\mgmoconnector\mgmoconnector.csproj" />
+    <ProjectReference Include="..\..\mgmoconnector\mgmoarticleconnector.csproj" />
   </ItemGroup>
 
 </Project>

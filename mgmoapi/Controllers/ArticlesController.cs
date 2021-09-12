@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using mgmoconnector.ViewModels;
+using mgmoarticleconnector.ViewModels;
 using mgmomain.Data;
 using Microsoft.AspNetCore.Mvc;
 

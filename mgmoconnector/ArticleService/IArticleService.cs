@@ -1,4 +1,4 @@
-﻿using mgmoconnector.ViewModels;
+﻿using mgmoarticleconnector.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

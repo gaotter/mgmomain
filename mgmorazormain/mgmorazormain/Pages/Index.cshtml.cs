@@ -1,4 +1,4 @@
-﻿using mgmoconnector.ViewModels;
+﻿using mgmoarticleconnector.ViewModels;
 using mgmomain.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

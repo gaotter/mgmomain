@@ -1,10 +1,10 @@
 ﻿using mgmoarticontracts.Models;
-using mgmoconnector.ViewModels;
+using mgmoarticleconnector.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace mgmoconnector.Mapping
+namespace mgmoarticleconnector.Mapping
 {
     static class ArticleToViewModel
     {

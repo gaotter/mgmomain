@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace mgmoconnector
+namespace mgmoarticleconnector
 {
    public  class ArticlesModule : Module
     {

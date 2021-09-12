@@ -1,7 +1,7 @@
 ﻿using mgmoarticleblo.Articles;
 using mgmoarticontracts.Models;
-using mgmoconnector.Mapping;
-using mgmoconnector.ViewModels;
+using mgmoarticleconnector.Mapping;
+using mgmoarticleconnector.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -14,7 +14,7 @@ using mgmoarticleblo.Articles;
 using mgmoarticontracts.Articles;
 using mgmoarticledata.Articles;
 using Autofac;
-using mgmoconnector;
+using mgmoarticleconnector;
 
 namespace mgmomain
 {
