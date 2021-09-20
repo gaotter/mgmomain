@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmotablestoragebase", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmorazormain", "..\mgmorazormain\mgmorazormain\mgmorazormain.csproj", "{F88F9930-9394-48C7-831C-2404CA5928B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgmoexampleconnector", "..\mgmoexampleconnector\mgmoexampleconnector.csproj", "{6BAB73F7-C3D4-43E6-9CAB-3B921B440E0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{F88F9930-9394-48C7-831C-2404CA5928B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F88F9930-9394-48C7-831C-2404CA5928B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F88F9930-9394-48C7-831C-2404CA5928B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BAB73F7-C3D4-43E6-9CAB-3B921B440E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BAB73F7-C3D4-43E6-9CAB-3B921B440E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BAB73F7-C3D4-43E6-9CAB-3B921B440E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BAB73F7-C3D4-43E6-9CAB-3B921B440E0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +123,7 @@ Global
 		{9B4229D0-11AF-48D4-8685-C8D70D76393C} = {9F8CE661-6F11-4B78-80B0-0BFD3989D740}
 		{F78A394B-9DD7-4FBD-BDA6-383E02D1638C} = {9F8CE661-6F11-4B78-80B0-0BFD3989D740}
 		{76B0A54C-C5B7-4B60-9BE0-4313B8040AAA} = {2D8F2880-78E0-4B16-B8C6-1554E4261DEA}
+		{6BAB73F7-C3D4-43E6-9CAB-3B921B440E0C} = {8B4B475F-966C-477B-8540-B0094ADAE13F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B5A5616D-804C-41BF-9702-4095FF8A3E01}

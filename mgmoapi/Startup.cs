@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using mgmoarticleconnector;
+using mgmoexampleconnector;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,7 @@ namespace mgmoapi
         {
             // Register your own things directly with Autofac, like:
             builder.RegisterModule(new ArticlesModule(Configuration));
+            builder.RegisterModule(new ExamplesModule(Configuration));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

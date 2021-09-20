@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\mgmoconnector\mgmoarticleconnector.csproj" />
+    <ProjectReference Include="..\mgmoexampleconnector\mgmoexampleconnector.csproj" />
   </ItemGroup>
 
 
