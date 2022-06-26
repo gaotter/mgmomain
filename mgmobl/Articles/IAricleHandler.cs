@@ -10,9 +10,7 @@ namespace mgmoarticleblo.Articles
     {
         public ArticleModel GetArticle(string category, string articleId);
 
-       public IEnumerable<ArticleModel> GetArticles(string category);
-
-       
+       public IEnumerable<ArticleModel> GetArticles(string category);      
 
        public Task<ArticleModel> StoreChanges(ArticleModel articleModel);
 

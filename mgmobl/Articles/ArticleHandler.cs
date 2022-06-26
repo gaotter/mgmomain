@@ -18,9 +18,7 @@ namespace mgmoarticleblo.Articles
         public ArticleModel NewArticle(string id, string category)
         {
             return new ArticleModel(id, category);
-        }
-
-     
+        }    
 
         public ArticleModel GetArticle(string category, string articleId)
         {

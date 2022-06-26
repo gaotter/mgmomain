@@ -11,6 +11,7 @@ namespace mgmoapi.Controllers
     [Route("[controller]")] 
     public class PingController : ControllerBase
     {
+        [HttpGet()]
         public object Get(string data)
         {
             return new { message = "from server " + data, tick = DateTime.Now.Ticks };

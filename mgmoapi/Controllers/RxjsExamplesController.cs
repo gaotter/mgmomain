@@ -20,6 +20,7 @@ namespace mgmoapi.Controllers
             this.rxJsExample = rxJsExample;
         }
 
+        [HttpGet()]
         public ActionResult<RxJsExampleData> Get(string message = "none")
         {
             return rxJsExample.GetExampleData(message);

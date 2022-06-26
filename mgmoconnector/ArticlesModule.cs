@@ -1,18 +1,14 @@
 ﻿using Autofac;
 using mgmoarticleblo.Articles;
-using mgmoarticledata;
 using mgmoarticledata.Articles;
 using mgmoarticontracts.Articles;
 using mgmomain.Data;
 using MgmoTableStorageBase;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace mgmoarticleconnector
 {
-   public  class ArticlesModule : Module
+    public  class ArticlesModule : Module
     {
         private IConfiguration _configuration;
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using mgmoarticleconnector.ViewModels;
 using mgmomain.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace mgmoapi.Controllers
@@ -19,12 +20,13 @@ namespace mgmoapi.Controllers
             _articleService = articleService;
         }
         
+        [HttpGet("articles")]
         public IEnumerable<ArticleViewModel> GetAllArticles()
         {
             return _articleService.GetAllAzureArticles();
         }
 
-        [HttpPost]
+        [HttpPost("articles")]
         public async Task<ActionResult<ArticleViewModel>> PostArticle(ArticleViewModel article)
         {
             return await _articleService.StoreArticle(article);
