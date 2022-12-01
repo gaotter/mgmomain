@@ -7,8 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Absractions\TableStorage\" />
-    <Folder Include="Records\" />
+    <Compile Remove="Absractions\**" />
+    <Compile Remove="Records\**" />
+    <EmbeddedResource Remove="Absractions\**" />
+    <EmbeddedResource Remove="Records\**" />
+    <None Remove="Absractions\**" />
+    <None Remove="Records\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\mgmo.main.article.contracts\mgmo.main.article.contracts.csproj" />
+    <ProjectReference Include="..\mgmo.main.article.models\mgmo.main.article.models.csproj" />
   </ItemGroup>
 
 </Project>

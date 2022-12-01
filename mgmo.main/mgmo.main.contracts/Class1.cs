@@ -1,4 +1,4 @@
-﻿namespace mgmo.main.articles
+﻿namespace mgmo.main.contracts
 {
     public class Class1
     {
