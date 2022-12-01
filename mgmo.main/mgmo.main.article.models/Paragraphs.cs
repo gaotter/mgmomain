@@ -1,4 +1,4 @@
-﻿namespace mgmo.main.article.models
+﻿namespace Mgmo.Main.Article.Models
 {
     public record Paragraphs
     {

@@ -1,4 +1,4 @@
-using mgmo.main.mvc;
+using Mgmo.Main.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 

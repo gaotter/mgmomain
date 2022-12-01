@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mgmo.main.article.contracts\mgmo.main.article.contracts.csproj" />
-    <ProjectReference Include="..\mgmo.main.article.models\mgmo.main.article.models.csproj" />
+    <ProjectReference Include="..\mgmo.main.article.contracts\Mgmo.Main.Article.Contracts.csproj" />
+    <ProjectReference Include="..\mgmo.main.article.models\Mgmo.Main.Article.Models.csproj" />
   </ItemGroup>
 
 </Project>

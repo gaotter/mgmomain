@@ -1,11 +1,11 @@
-﻿namespace mgmo.main.article.contracts
+﻿namespace Mgmo.Main.Article.Contracts
 {
     public interface IArticle
     {
-        public Task<models.Article> Get();
+        public Task<Models.Article> Get();
 
-        public Task<models.Article> Create(models.Article article);
+        public Task<Models.Article> Create(Models.Article article);
 
-        public Task<models.Article> Update(models.Article article);
+        public Task<Models.Article> Update(Models.Article article);
     }
 }

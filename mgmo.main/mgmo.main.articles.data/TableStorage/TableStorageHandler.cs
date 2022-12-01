@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mgmo.main.articles.data.TableStorage
+namespace Mgmo.Main.Articles.Data.TableStorage
 {
     public class TableStorageHandler
     {

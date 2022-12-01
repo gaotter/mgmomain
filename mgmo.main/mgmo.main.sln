@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmo.main.mvc", "mgmo.main.mvc\mgmo.main.mvc.csproj", "{B34CEB80-B2C5-4C8E-972B-E54BA084F769}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mgmo.Main.Mvc", "mgmo.main.mvc\Mgmo.Main.Mvc.csproj", "{B34CEB80-B2C5-4C8E-972B-E54BA084F769}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmo.main.articles", "mgmo.main.articles\mgmo.main.articles.csproj", "{1C84E987-169B-437E-8F2B-47BAF93EA99B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mgmo.Main.Articles", "mgmo.main.articles\Mgmo.Main.Articles.csproj", "{1C84E987-169B-437E-8F2B-47BAF93EA99B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mgmo.main.articles.data", "mgmo.main.articles.data\mgmo.main.articles.data.csproj", "{DC54AE3B-5326-4BAC-9ACC-81D278A633F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mgmo.Main.Articles.Data", "mgmo.main.articles.data\Mgmo.Main.Articles.Data.csproj", "{DC54AE3B-5326-4BAC-9ACC-81D278A633F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgmo.main.article.models", "mgmo.main.article.models\mgmo.main.article.models.csproj", "{7C2757A8-5F59-43B6-9D4E-EB3818864FF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mgmo.Main.Article.Models", "mgmo.main.article.models\Mgmo.Main.Article.Models.csproj", "{7C2757A8-5F59-43B6-9D4E-EB3818864FF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mgmo.main.article.contracts", "mgmo.main.article.contracts\mgmo.main.article.contracts.csproj", "{09B2B18E-4367-4886-B4D3-2937EE3D018C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mgmo.Main.Article.Contracts", "mgmo.main.article.contracts\Mgmo.Main.Article.Contracts.csproj", "{09B2B18E-4367-4886-B4D3-2937EE3D018C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿namespace mgmo.main.mvc
+﻿namespace Mgmo.Main.Mvc
 {
     public static class Bootstrap
     {

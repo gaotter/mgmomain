@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mgmo.main.articles
+namespace Mgmo.Main.Articles
 {
     public static class Bootstrap
     {
-        public static IServiceCollection
+
     }
 }
