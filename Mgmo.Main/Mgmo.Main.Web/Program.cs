@@ -1,11 +1,7 @@
-using mgmo.main.mvc;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services
-    .AddMgmoMainServices()
-    .AddControllersWithViews();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 

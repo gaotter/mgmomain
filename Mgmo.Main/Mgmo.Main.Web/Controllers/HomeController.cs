@@ -1,8 +1,8 @@
-﻿using mgmo.main.mvc.Models;
+﻿using Mgmo.Main.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace mgmo.main.mvc.Controllers
+namespace Mgmo.Main.Web.Controllers
 {
     public class HomeController : Controller
     {

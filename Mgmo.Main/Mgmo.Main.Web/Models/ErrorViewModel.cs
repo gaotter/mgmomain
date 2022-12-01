@@ -1,4 +1,4 @@
-namespace mgmo.main.mvc.Models
+namespace Mgmo.Main.Web.Models
 {
     public class ErrorViewModel
     {
