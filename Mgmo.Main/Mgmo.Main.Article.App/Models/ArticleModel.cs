@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mgmo.main.contracts.Data
+namespace Mgmo.Main.Article.App.Models
 {
-    public interface IArticle
+    public class ArticleModel
     {
+        public string Title { get; set; }
     }
 }

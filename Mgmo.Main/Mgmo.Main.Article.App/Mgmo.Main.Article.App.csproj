@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mgmo.main.article.models\Mgmo.Main.Article.Models.csproj" />
+    <ProjectReference Include="..\Mgmo.Main.Article.Core\Mgmo.Main.Article.Core.csproj" />
   </ItemGroup>
 
 </Project>
