@@ -1,4 +1,4 @@
-name: Buils deploy simple app
+name: Buils deploy mgmo site
 
 on:
   push:
