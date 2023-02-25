@@ -7,7 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Interfaces\" />
 		<PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="5.2.0" />
 	</ItemGroup>
 

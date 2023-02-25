@@ -1,6 +1,7 @@
 ﻿using Azure.Data.Tables;
 using Azure.Data.Tables.Models;
 using Mgmo.Main.Article.Data.Config;
+using Mgmo.Main.Article.Data.Models;
 using Mgmo.Main.Article.Infratructure.Interfaces.Stores;
 
 namespace Mgmo.Main.Article.Infratructure.Articles
@@ -14,14 +15,26 @@ namespace Mgmo.Main.Article.Infratructure.Articles
             _appConfig = appConfig;
         }
 
-        public async Task<TableItem> GetArticleTable()
+        public async Task<TableClient> GetArticleTableClient()
         {
             // Create a table client for interacting with the table service
-            var tableClient = new TableServiceClient(_appConfig.StorageConnectionString);
-            // Create a table client for interacting with the table service
-            var table = await tableClient.CreateTableIfNotExistsAsync("article");
+            var tableServiceClient = new TableServiceClient(_appConfig.StorageConnectionString);
+            var tableClient = tableServiceClient.GetTableClient("articles");
 
-            return table.Value;
+            // Create a table client for interacting with the table service
+            _  = await tableServiceClient.CreateTableIfNotExistsAsync("articles");
+
+            return tableClient;
         }
+
+        public async Task<IEnumerable<ArticleModel>> GetAllArticles()
+        {
+            var articleTableClient = await GetArticleTableClient();
+
+            var articles = articleTableClient.Query< ArticleModel>(x => true);
+
+            
+        }
+
     }
 }

@@ -9,6 +9,6 @@ namespace Mgmo.Main.Article.Infratructure.Interfaces.Stores
 {
     public interface IArticleStore
     {
-        Task<TableItem> GetArticleTable();
+        Task<TableItem> GetArticleTableClient();
     }
 }

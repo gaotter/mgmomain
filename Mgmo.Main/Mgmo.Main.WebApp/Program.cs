@@ -1,5 +1,6 @@
 using Azure.Identity;
 using Mgmo.Main.Article.Data.Config;
+using Mgmo.Main.Article.Core.Connector;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,8 @@ else
 
 // Bind the configuration settings to the AppConfig class
 builder.Services.Configure<AppConfig>(builder.Configuration);
+
+builder.Services.AddArticleServices();
 
 var app = builder.Build();
 
