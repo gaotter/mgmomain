@@ -62,7 +62,7 @@ header nav div.active
 
 #main {
     display: flex;
-    height: 90vh;
+    min-height: 90vh;
 }
 
 #content {
