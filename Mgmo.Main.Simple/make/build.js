@@ -4,7 +4,6 @@ async function buildHtml() {
   const subDir = "src";
   const componentDir = "components";
   const dirs = await fs.readdir(`./${subDir}`);
-  const components = await fs.readdir(`./${subDir}/${componentDir}`);
 
   dirs
     .filter((dir) => dir.includes(".html"))

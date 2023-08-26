@@ -1,0 +1,42 @@
+body {
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 1000px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+nav {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items: center;
+    height: 100%;
+    list-style: none; 
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #003dc2;
+    
+}
+
+section {
+    height: 300px;
+    padding: 30px;
+    border: black 1px solid;
+}
+
+section.top h1{
+    font-size: xxx-large;
+    margin-bottom: 5px;
+    
+}
