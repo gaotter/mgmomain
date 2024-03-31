@@ -1,0 +1,39 @@
+﻿@page "/createArticle"
+@using Mgmo.Main.Core.Areas.Articles.Contracts;
+@inject IArticleHandler ArticleHandler
+
+<h3>CreateArticle</h3>
+
+<EditForm Model="@ArticleModel" OnValidSubmit="@CreateNewArticle">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <InputText id="Title" class="form-control" @bind-Value="@ArticleModel.Title" />
+    </div>
+
+    <div class="form-group">
+        <label for="Content">Content</label>
+        <InputTextArea id="Content" class="form-control" @bind-Value="@ArticleModel.Content" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</EditForm>
+
+
+@code {
+
+    public Article ArticleModel { get; set; } = new Article();
+
+    public class Article
+    {
+        public string Title { get; set; }
+        public string Content { get; set; }
+    }
+
+    private async Task CreateNewArticle()
+    {
+        await ArticleHandler.Create(ArticleModel.Title, ArticleModel.Content, "morten", new List<string>());
+    }
+}

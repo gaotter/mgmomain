@@ -1,0 +1,5 @@
+{
+    "staticWebApps.appSubpath": "clients/mgmoreact",
+    "staticWebApps.apiSubpath": "/",
+    "staticWebApps.appArtifactSubpath": "public"
+}

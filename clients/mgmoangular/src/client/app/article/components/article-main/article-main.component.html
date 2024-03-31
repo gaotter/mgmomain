@@ -1,8 +1,0 @@
-<ul class="category-list" *ngIf="articleService.$data | async as articles">
-  <li class="article-item" *ngFor="let article of articles">
-    <h3 >{{ article.title }}</h3>
-    <div>Category: {{ article.category}}</div>
-    <div>Published: {{ article.publishDate}}</div>
-  </li>
-
-</ul>
