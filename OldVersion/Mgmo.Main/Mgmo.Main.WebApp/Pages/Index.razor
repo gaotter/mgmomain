@@ -1,0 +1,39 @@
+﻿@page "/"
+
+@using Mgmo.Main.Core.Areas.Articles.Contracts;
+@using Mgmo.Main.Core.Areas.Articles;
+
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@foreach (var article in Articles)
+{
+    <h2>@article.Title</h2>
+    <p>@article.Content</p>
+}
+
+<NavLink href="/createArticle">Create an Article</NavLink>
+
+@code {
+    [Inject]
+    public IArticleHandler ArticleHandler { get; set; }
+
+    private IEnumerable<Article> Articles { get; set; } = new List<Article>();
+
+    private async Task GetArticles()
+    {
+        Articles = await ArticleHandler.GetAll();      
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetArticles();
+    }
+}
+
+
+
