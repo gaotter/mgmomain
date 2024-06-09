@@ -1,12 +1,14 @@
 using Mgmo.Main.WebApp.Api;
 using Mgmo.Main.WebApp.Components;
-using System.Text.Json.Serialization;
+using Mgmo.Main.Blog.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddBlogServices();
 
 var app = builder.Build();
 
@@ -19,6 +21,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 
 app.UseStaticFiles();
 app.UseAntiforgery();

@@ -1,8 +1,8 @@
-﻿namespace Mgmo.Main.Blog.Core.Records
+﻿namespace Mgmo.Main.Blog.Core.Dto
 {
-    public record BlogPost
+    public record BlogPostDto
     {
-        public BlogPost(int id, string title, string categoty, string content, DateTime publishedAt, string mainImageUrl, IEnumerable<string> imageUrls)
+        public BlogPostDto(int id, string title, string categoty, string content, DateTime publishedAt, string mainImageUrl, IEnumerable<string> imageUrls)
         {
             Id = id;
             Title = title;
