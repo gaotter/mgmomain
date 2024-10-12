@@ -5,11 +5,11 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mgmo.Main.WebApp", "Mgmo.Main.WebApp.csproj", "{EA7657EE-690C-4456-8CB8-257F7CCD8E74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mgmo.Main.Blog.Core", "..\Mgmo.Main.Blog.Core\Mgmo.Main.Blog.Core.csproj", "{8B321523-5543-4BD5-B903-48B194075B65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mgmo.Main.Blog.Core", "..\Mgmo.Main.Blog.Core\Mgmo.Main.Blog.Core.csproj", "{8B321523-5543-4BD5-B903-48B194075B65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mgmo.Main.Blog.Services", "..\Mgmo.Main.Blog.Services\Mgmo.Main.Blog.Services.csproj", "{8640C572-4E63-4CE9-927D-2B743FEB0668}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mgmo.Main.Blog.Services", "..\Mgmo.Main.Blog.Services\Mgmo.Main.Blog.Services.csproj", "{8640C572-4E63-4CE9-927D-2B743FEB0668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mgmo.Main.Blog.Infratructure", "..\Mgmo.Main.Blog.Infratructure\Mgmo.Main.Blog.Infratructure.csproj", "{74C194CD-91A0-490C-876D-BB192976D710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mgmo.Main.Blog.Infratructure", "..\Mgmo.Main.Blog.Infratructure\Mgmo.Main.Blog.Infratructure.csproj", "{74C194CD-91A0-490C-876D-BB192976D710}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,6 +5,7 @@ namespace Mgmo.Main.Blog.Core.Contracts
     public interface IBlogPostsBlo
     {
         public Task AddBlogPostAsync(BlogPostDto blogPost);
-        public Task<IEnumerable<BlogPostDto>> GetAllBlogPostasAsync();
+        public Task<BlogPostsDto> GetAllBlogPostasAsync(string continueToken);
+        Task<BlogPostDto> GetBlogAsync(string id, string category);
     }
 }

@@ -7,20 +7,31 @@ namespace Mgmo.Main.Blog.Core.Blo
     {
         private readonly IBlogPostsStorageHandler _blogPostsStorageHandler;
 
+
         public BlogPostsBlo(IBlogPostsStorageHandler blogPostsStorageHandler)
         {
             _blogPostsStorageHandler = blogPostsStorageHandler;
         }
+
         public Task AddBlogPostAsync(BlogPostDto blogPost)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<BlogPostDto>> GetAllBlogPostasAsync()
+        public async Task<BlogPostsDto> GetAllBlogPostasAsync(string continueToken)
         {
-             var blogPosts = await _blogPostsStorageHandler.GetAllBlogPostasAsync();
+             var blogPosts = await _blogPostsStorageHandler.GetAllBlogPostasAsync(continueToken);
 
             return blogPosts;
         }
+
+        public async Task<BlogPostDto> GetBlogAsync(string id, string category)
+        {
+            var blogPost = await _blogPostsStorageHandler.GetBlogAsync(id, category);
+
+            return blogPost;
+        }
+
+
     }
 }

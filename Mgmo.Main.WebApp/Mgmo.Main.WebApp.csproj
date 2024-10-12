@@ -7,6 +7,7 @@
     <UserSecretsId>10cbae06-ea80-4b9c-8a51-3ecda0bb563b</UserSecretsId>
   </PropertyGroup>
 
+
   <ItemGroup>
     <ProjectReference Include="..\Mgmo.Main.Blog.Services\Mgmo.Main.Blog.Services.csproj" />
   </ItemGroup>

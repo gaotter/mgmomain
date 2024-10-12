@@ -12,6 +12,8 @@ builder.Services.AddBlogServices();
 
 var app = builder.Build();
 
+//await BlogServices.InitApplications(app.Services);
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

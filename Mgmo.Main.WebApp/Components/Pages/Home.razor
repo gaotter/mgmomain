@@ -1,7 +1,8 @@
 ﻿@page "/"
 @using Mgmo.Main.Blog.Core.Contracts
 @using Mgmo.Main.Blog.Core.Dto
-@inject IBlogPostsStorageHandler BlogPostsStorageHandler
+@using Mgmo.Main.Blog.Services.Services
+@inject BlogService BlogPostsStorageHandler
 @rendermode InteractiveServer
 
 <PageTitle>Mgmo Main</PageTitle>
@@ -13,24 +14,42 @@
     <ul>
         @foreach (var blogPost in BlogPosts)
         {
-            <li>@blogPost.Title</li>
+            <li>
+                <a href="post/@blogPost.Id">  @blogPost.Title</a>
+            </li>
         }
     </ul>
 }
 
-<button class="btn btn-primary" @onclick="GetBlogPosts">Click me</button>
+@if (pagingTokten is not null)
+{
+    <button @onclick="GetMorePosts">Get older posts</button>
+}
 
 
 @code {
-    
-    IEnumerable<BlogPostDto>? BlogPosts { get; set;} 
+    private List<BlogPostDto> BlogPosts { get; set; } = new List<BlogPostDto>();
+    string? pagingTokten = null;
 
-    private async Task GetBlogPosts()
+    protected override async Task OnInitializedAsync()
     {
-        // Task.Run(() => BlogPostsStorageHandler.GetAllBlogPostasAsync())
-        // .ContinueWith((b) => BlogPosts);
-        var blogPosts = await BlogPostsStorageHandler.GetAllBlogPostasAsync();
-        BlogPosts = blogPosts;
-   
+        await BlogPostsStorageHandler.InitializeBlogPostService();
+        var b = BlogPostsStorageHandler.InitialBlogPosts;
+
+        BlogPosts = b.Posts.ToList();
+        pagingTokten = b.PaginationContinueToken;
     }
+
+
+    private async Task GetMorePosts()
+    {
+        var blobPosts = await BlogPostsStorageHandler.GetBlogPosts(pagingTokten);
+        if (blobPosts.Posts is not null)
+            BlogPosts.AddRange(blobPosts.Posts);
+
+        pagingTokten = blobPosts.PaginationContinueToken;
+
+    }
+
+
 }

@@ -6,10 +6,13 @@ using Mgmo.Main.Blog.Core.Dto;
 using Mgmo.Main.Blog.Infratructure.TableEnteties;
 using Microsoft.Extensions.Configuration;
 
+
+
 namespace Mgmo.Main.Blog.Infratructure.StorageHandles
 {
     public class BlogPostsStorageHandler : IBlogPostsStorageHandler
     {
+        private const string BlogTableName = "BlogPosts";
         private readonly string? _connectionString;
         public BlogPostsStorageHandler(IConfiguration configuration)
         {
@@ -22,32 +25,51 @@ namespace Mgmo.Main.Blog.Infratructure.StorageHandles
             // Save to table storage
             var tableClint = GetTable("BlogPosts");
 
-          //  await tableClint.AddEntityAsync(blogEntity);
+            //  await tableClint.AddEntityAsync(blogEntity);
         }
 
-        public async Task<IEnumerable<BlogPostDto>> GetAllBlogPostasAsync()
+        public async Task<BlogPostsDto> GetAllBlogPostasAsync(string continueToken)
         {
             var tableClint = await GetTable("BlogPosts");
+
+            AsyncPageable< BlogEntity> blogEntitiesPagebale = tableClint.QueryAsync<BlogEntity>(maxPerPage: 3);
             
-
-            var blogEntitiesPagebale = tableClint.QueryAsync<BlogEntity>();
-
-            var blogPosts = await GetBlogPostDtos(blogEntitiesPagebale);
+            var blogPosts = await GetBlogPostDtos(blogEntitiesPagebale, continueToken);
 
             return blogPosts;
         }
 
-        private static async Task<IEnumerable<BlogPostDto>> GetBlogPostDtos(AsyncPageable<BlogEntity> blogEntities)
+        public async Task<BlogPostDto> GetBlogAsync(string id, string category)
         {
-            var blogPosts = new List<BlogPostDto>();
+            var tableClint = await GetTable(BlogTableName);
 
-            await foreach (var blogEntity in blogEntities)
+            var blogEntity = await tableClint.GetEntityAsync<BlogEntity>(category, id);
+
+            return new BlogPostDto(blogEntity.Value.Id, blogEntity.Value.Title, blogEntity.Value.Category, blogEntity.Value.Content, blogEntity.Value.PublishedAt, blogEntity.Value.MainImageUrl, blogEntity.Value.ImageUrls?.Split(";"));
+        }
+
+        private static async Task<BlogPostsDto> GetBlogPostDtos(AsyncPageable<BlogEntity> blogEntities, string paginationContinueToken)
+        {
+            
+            var posts = new List<BlogPostDto>();
+            var nextToken = paginationContinueToken ?? string.Empty;
+            await foreach (var blogEntityGroup in blogEntities.AsPages(paginationContinueToken))
             {
-                blogPosts.Add(new BlogPostDto(blogEntity.Id, blogEntity.Title, blogEntity.Category, blogEntity.Content, blogEntity.PublishedAt, blogEntity.MainImageUrl, blogEntity.ImageUrls?.Split(";")));
+               nextToken = blogEntityGroup.ContinuationToken;
+                foreach (var blogPost in blogEntityGroup.Values)
+                    posts.Add(new BlogPostDto(blogPost.Id, blogPost.Title, blogPost.Category, blogPost.Content, blogPost.PublishedAt, blogPost.MainImageUrl, blogPost.ImageUrls?.Split(";")));
+                break;
             }
+            var blogPosts = new BlogPostsDto
+            { 
+                PaginationContinueToken = nextToken, Posts = posts,
+                
+            };
 
             return blogPosts;
         }
+
+        
 
         private async Task<TableClient> GetTable(string tableName)
         {
