@@ -7,16 +7,17 @@
 {
     
     <div class="page-main-content">
-        <section class="content">
-            <h1>@BlogPost.Title</h1>
-            <p>@BlogPost.Content</p>
-        </section>
         @if (BlogPost.MainImageUrl is not null)
         {
             <section class="main-image">
                 <img src="@BlogPost.MainImageUrl" alt="@BlogPost.Title" />
             </section>
         }
+        <section class="content">
+            <h1>@BlogPost.Title</h1>
+            <p>@BlogPost.Content</p>
+        </section>
+        
     </div>
 }
 else
