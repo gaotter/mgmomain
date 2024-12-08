@@ -1,10 +1,11 @@
 import { Component, HostBinding, OnDestroy, OnInit,  ChangeDetectorRef  } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'mgmo-responsive-table',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './mgmo-responsive-table.component.html',
   styleUrl: './mgmo-responsive-table.component.css'
 })
@@ -12,10 +13,11 @@ export class MgmoResponsiveTableComponent implements OnInit, OnDestroy {
   @HostBinding('style.--grid-repeat') gridNumber = 10;
   @HostBinding('style.--background-color') tableBackcolor = 'red';
 
+  public fakeClass = false;;
   private viewPortChanger: Subscription;
   constructor(private viewPortRuler: ViewportRuler, private cdr: ChangeDetectorRef) {
 
-    this.viewPortChanger = this.viewPortRuler.change().subscribe(() => {
+    this.viewPortChanger = this.viewPortRuler.change(200).subscribe(() => {
       this.onResize();
     });
   }
@@ -28,18 +30,13 @@ export class MgmoResponsiveTableComponent implements OnInit, OnDestroy {
 
     console.log(this.viewPortRuler.getViewportSize().width);
     if(this.viewPortRuler.getViewportSize().width < 1200) {
-
       this.gridNumber = 5;
-
       this.tableBackcolor = 'blue';
-
-      console.log('less than 1200');
-      this.cdr.detectChanges();
+      this.cdr.markForCheck();
     } else {
       this.gridNumber = 10;
       this.tableBackcolor = 'red';
-      console.log('more than 1200');
-      this.cdr.detectChanges();
+      this.cdr.markForCheck();
     }
 
   }

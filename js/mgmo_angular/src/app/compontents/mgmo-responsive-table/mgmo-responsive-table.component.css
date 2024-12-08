@@ -9,8 +9,14 @@
   background-color: var(--background-color);
 }
 
+
+
 .table .table-row {
   display: grid;
   grid-template-columns: repeat(var(--grid-repeat), 1fr);
   grid-gap: 1px;
+}
+.table .table-row.header {
+  background-color: #f5f5f5;
+  font-weight: bold;
 }
