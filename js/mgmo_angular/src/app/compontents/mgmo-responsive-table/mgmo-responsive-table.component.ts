@@ -13,7 +13,9 @@ export class MgmoResponsiveTableComponent implements OnInit, OnDestroy {
   @HostBinding('style.--grid-repeat') gridNumber = 10;
   @HostBinding('style.--background-color') tableBackcolor = 'red';
 
-  public fakeClass = false;;
+  public fakeClass = false;
+  public headres:string[] = [];
+
   private viewPortChanger: Subscription;
   constructor(private viewPortRuler: ViewportRuler, private cdr: ChangeDetectorRef) {
 
@@ -23,6 +25,10 @@ export class MgmoResponsiveTableComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.onResize();
+
+    const propertyNames = Object.keys(this.customers[0]);
+    this.headres = propertyNames;
+    console.log(propertyNames);
   }
   public customers = tableData;
 
